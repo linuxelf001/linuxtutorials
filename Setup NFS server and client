@@ -1,0 +1,14 @@
+This tutorial is intended for audience, who wants to setup NFS server and to mount NFS share on NFS client.
+For the purpose of this tutorial, I am using linux servers hosted on Azure platform
+
+My setup:
+
+      nfs server, centos 7.1
+      nfs client, centos 7.1
+      
+
+Procedure:
+      
+      NFS server:
+        
+        

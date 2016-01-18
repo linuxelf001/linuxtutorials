@@ -1,24 +1,27 @@
 
-This tutorial describes the steps to create a virtual drive on Linux server using MDADM
+This tutorial describes the steps to create a virtual drive on Linux server using MDADM.
 
 My setup details:
         
-        Centos 7.1
+        Centos 7.1 
 
 Procedure:
-  1)  For Centos, YUM is the default package manager. Using yum, install mdadm package
+  1)  For Centos, YUM is the default package manager. Using yum, install mdadm package.
      yum -y install mdadm
      
-  2)  For the purpose of creating virtual drive, I mounted two extra disks. My goal is to create a RAID 0 virtual drive using these two disks
+  2)  For the purpose of creating virtual drive, I mounted two extra disks. 
+       My goal is to create a RAID 0 virtual drive using these two disks.
       Disk 1 - 1TB
       Disk 2 - 1TB
       
   3) Create a disk partition on both disks using fdisk. Create the partition and tag the partition with Linux raid autodetect.
   
-      # Script to create the partition and tag the partition on one disk only
+      # Script to create the partition and tag the partition on disks sdc and sdd with Linux autoraid tag.
+      # Change the disk names, depending upon your setup
       #!/bin/bash
-
-      fdisk /dev/sdc <<EOF
+     
+      for r in /dev/sdc /dev/sdd; do
+      fdisk "$r" <<EOF
       n
       p
       1
@@ -28,7 +31,7 @@ Procedure:
       fd
       w
       EOF
-      
+      done
       
   4) Create the virtual drive
       mdadm --create /dev/md007 --level 0 --raid-devices 2 /dev/sdc1 /dev/sdd1 
@@ -39,13 +42,14 @@ Procedure:
   6) Create the filesystem 
       mkfs.ext4 -t ext4 /dev/md7
     
-  7) Create the directory. In my case, I want to mount my 50G space under /data
+  7) Create the directory. In my case, I want to mount my 2TB space under /data
       mkdir -p /data
     
-  8) To ensure, /data gets mounted even after a server reboot, update the fstab. Using blkid, find the UUID of above filesystem and update fstab
-      UUID=abcde  /data  ext4  defaults  0  2
+  8) To ensure, /data gets mounted even after a server reboot, update the fstab. 
+       Using blkid, find the UUID of above filesystem and update fstab
       
-      Note: abcde  should be replaced with UUID
+      UUID=abcde  /data  ext4  defaults  0  2
+       Note: abcde  should be replaced with UUID
     
   9) Finally mount 
       mount -a

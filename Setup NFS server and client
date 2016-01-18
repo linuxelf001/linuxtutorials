@@ -42,4 +42,4 @@ Procedure:
           
        3) mount -a
        
-       
+       TIP: If you want to monitor, performance of NFS reads/writes, you can use nfsiostat [Easy to remember append nfs to iostat]

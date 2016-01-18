@@ -20,7 +20,7 @@ Procedure:
             https://gist.github.com/rginjupalli/5b4d8cda0ed338dadbe6
             
           Note: Above script has been generated using REDHAT NFS application. 
-          In the script, modify XX.XX.XX.XX with your client IP address and /data with your NFS server share.
+          In the script, modify XX.XX.XX.XX with your client IP address and /foo with your NFS server share.
       
        3) Running above script, does all the magic to setup NFS share and updating /etc/exports file with client information as well.
        
@@ -31,7 +31,7 @@ Procedure:
        
       NFS client:
        
-       1) Similar to NFS server, assign instance IP address to NFS client.
+       1) I deployed a centos 7.1 which acts as my NFS client. Similar to NFS server, assign instance IP address to NFS client.
            Shutdown the server. Using Azure potal, go to server settings -> IP addresses -> Instance IP address on -> save
        
        2) Start the server and then run the script: 
@@ -41,5 +41,7 @@ Procedure:
           your local nfs client mount point
           
        3) mount -a
+       
+       If everything ran successfully, you should have a NFS server/client setup.
        
        TIP: If you want to monitor, performance of NFS reads/writes, you can use nfsiostat [Easy to remember append nfs to iostat]

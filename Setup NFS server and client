@@ -5,17 +5,22 @@ My setup:
 
       nfs server, centos 7.1
       nfs client, centos 7.1
-      Assign a static IP address to each.
-
+ 
 Procedure:
       
       NFS server:
        
        1) Using the steps described in https://github.com/rginjupalli/linuxtutorials/blob/gh-pages/Setup%20virtual%20drive%20using%20mdadm
-            I have created 2TB virtual drive mounted on /data 
+            I have created 2TB virtual drive on NFS server, for /data.
        
-       2) Using the REDHAT tool, nfsserver script has been generated. You can find the script details here: https://gist.github.com/rginjupalli/5b4d8cda0ed338dadbe6
-            As mentioned, please ensure to modify XX.XX.XX.XX with your client IP address and /data with your NFS share 
+       2) Next, assign instance IP address to NFS server
+           Shutdown the server. Using Azure potal, go to server settings -> IP addresses -> Instance IP address on -> save
+           
+       3) Start the server and then run the script: 
+            https://gist.github.com/rginjupalli/5b4d8cda0ed338dadbe6
+            
+          Note: Above script has been generated using REDHAT NFS application. 
+          In the script, modify XX.XX.XX.XX with your client IP address and /data with your NFS server share 
       
        3) Running above script, does all the magic to setip NFS share and updating /etc/exports file with client information as well
        

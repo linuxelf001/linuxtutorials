@@ -1,5 +1,5 @@
 This tutorial is intended for audience, who wants to setup NFS server and to mount NFS share on NFS client.
-For the purpose of this tutorial, I used linux servers hosted on Azure platform
+For the purpose of this tutorial, I used linux servers hosted on Azure platform.
 
 My setup:
 
@@ -13,28 +13,33 @@ Procedure:
        1) Using the steps described in https://github.com/rginjupalli/linuxtutorials/blob/gh-pages/Setup%20virtual%20drive%20using%20mdadm
             I have created 2TB virtual drive on NFS server, for /data.
        
-       2) Next, assign instance IP address to NFS server
+       2) Next, assign instance IP address to NFS server.
            Shutdown the server. Using Azure potal, go to server settings -> IP addresses -> Instance IP address on -> save
            
        3) Start the server and then run the script: 
             https://gist.github.com/rginjupalli/5b4d8cda0ed338dadbe6
             
           Note: Above script has been generated using REDHAT NFS application. 
-          In the script, modify XX.XX.XX.XX with your client IP address and /data with your NFS server share 
+          In the script, modify XX.XX.XX.XX with your client IP address and /data with your NFS server share.
       
-       3) Running above script, does all the magic to setip NFS share and updating /etc/exports file with client information as well
+       3) Running above script, does all the magic to setup NFS share and updating /etc/exports file with client information as well.
        
        4) As a sanity check, ensure these services are running on NFS server - nfs-server, rpcbind, nfs-config
-          systemctl start nfs-server
-          systemctl start rpcbind
-          systemctl start nfs-config
+          systemctl status nfs-server
+          systemctl status rpcbind
+          systemctl status nfs-config
        
       NFS client:
        
-       1) Using the REDHAT tool, nfsclient script has been generated. You can find the script details here: https://gist.github.com/rginjupalli/41ceff51736c5d1e28a7
-            As mentioned, please ensure to modify XX.XX.XX.XX with your server IP address and with your NFS share details
-       2) systemctl start rpcbind
+       1) Similar to NFS server, assign instance IP address to NFS client.
+           Shutdown the server. Using Azure potal, go to server settings -> IP addresses -> Instance IP address on -> save
        
-       3) In progress
-      
-        
+       2) Start the server and then run the script: 
+       You can find the script details here: https://gist.github.com/rginjupalli/41ceff51736c5d1e28a7
+       
+          Note: As mentioned, please ensure to modify XX.XX.XX.XX with your nfs server IP address and replace local with
+          your local nfs client mount point
+          
+       3) mount -a
+       
+       

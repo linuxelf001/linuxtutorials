@@ -1,4 +1,5 @@
 # linuxtutorials
 
-These tutorials are intended for my reference and if any one finds it useful, you are free to use. 
-Scripts may contain bugs, please use it with caution!!!
+These tutorials are intended for my reference. If you find these tutorials useful, feel free to use it at your own risk.
+
+NOTE: My company nor I, are responsible for any bugs or outdated information. But, I strive to share the information based on my experiences.

@@ -35,7 +35,7 @@ Procedure:
            Shutdown the server. Using Azure potal, go to server settings -> IP addresses -> Instance IP address on -> save
        
        2) Start the server and then run the script: 
-       You can find the script details here: https://gist.github.com/rginjupalli/41ceff51736c5d1e28a7
+           You can find the script details here: https://gist.github.com/rginjupalli/41ceff51736c5d1e28a7
        
           Note: As mentioned, please ensure to modify XX.XX.XX.XX with your nfs server IP address and replace local with
           your local nfs client mount point

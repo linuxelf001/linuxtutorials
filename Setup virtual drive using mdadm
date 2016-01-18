@@ -10,8 +10,8 @@ Procedure:
      yum -y install mdadm
      
   2)  For the purpose of creating virtual drive, I mounted two extra disks. My goal is to create a RAID 0 virtual drive using these two disks
-      Disk 1 - 25G
-      Disk 2 - 25G
+      Disk 1 - 1TB
+      Disk 2 - 1TB
       
   3) Create a disk partition on both disks using fdisk. Create the partition and tag the partition with Linux raid autodetect.
   

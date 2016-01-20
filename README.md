@@ -1,10 +1,2 @@
-
- __            ___        ___           ___      
-|  |          /  /        \  \         /   \     
-|  |         /  /  ______  \  \       /  ^  \    
-|  |        <  <  |______|  >  >     /  /_\  \   
-|  `----.    \  \          /  /     /  _____  \  
-|_______|     \__\        /__/     /__/     \__\ 
-                                                 
-                                                 
-                                                 LINUX tutorials on AZURE platform
+                                    LINUX tutorials on AZURE platform                                                   
+                                    

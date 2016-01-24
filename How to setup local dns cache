@@ -1,0 +1,16 @@
+This tutorial, describes the process to setup local DNS cache.
+
+My environment: Centos 7.1, hosted on Azure
+
+Steps:
+
+  1)  Install Name Service Caching Daemon {NSCD}. NSCD, catches calling gethostbyname calls and few others.
+        yum -y install nscd
+  
+  2)  Modify NSCD configuration, as per the needs. As per the use case, parameter values needs to be changed.
+        
+        Some notes on threads, suggested-size and max-db-size. If a large volume of requests is being made, threads has be tweaked,
+        suggested-size is the hash table size and max-db-size is the max size of its on-disk database files
+  
+  3) Once configured, start the service
+        systemctl start nscd

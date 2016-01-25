@@ -9,8 +9,10 @@ Steps:
   
   2)  Modify NSCD configuration, as per the needs. As per the use case, parameter values needs to be changed.
         
-        Some notes on threads, suggested-size and max-db-size. If a large volume of requests is being made, threads has be tweaked,
-        suggested-size is the hash table size and max-db-size is the max size of its on-disk database files
+        Notes: If a large volume of requests is being made, threads has be tweaked, max-db-size is the max size of its on-disk 
+        database files
   
   3) Once configured, start the service
         systemctl start nscd
+
+  Note: In order to test NSCD, use getent hosts. 

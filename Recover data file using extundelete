@@ -1,0 +1,18 @@
+
+Test server:
+      Ubuntu 14.04
+
+
+Step-1) Install extundelete, if not installed
+      apt-get install extundelete
+
+Step-2) Plan of the action is to recover datafile deleted from /mnt
+
+Step-3) umount /mnt to avoid overwriting the inodes used by datafile
+
+Step-4) Recover datafile, which has been deleted from /mnt
+       extundelete --restore-file datafile /dev/sdb1
+      WARNING: Extended attributes are not restored.
+      Loading filesystem metadata ... 400 groups loaded.
+      Loading journal descriptors ... 54 descriptors loaded.
+      Restored inode 14 to file RECOVERED_FILES/datafile
